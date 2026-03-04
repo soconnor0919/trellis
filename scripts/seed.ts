@@ -10,7 +10,8 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import * as schema from "../src/server/db/schema";
 
-const DB_PATH = process.env.DATABASE_URL ?? "db.sqlite";
+const raw = process.env.DATABASE_URL || "db.sqlite";
+const DB_PATH = raw.startsWith("file:") ? raw.slice(5) : raw;
 const sqlite = new Database(DB_PATH);
 const db = drizzle(sqlite, { schema });
 
