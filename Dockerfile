@@ -19,10 +19,10 @@ ENV SKIP_ENV_VALIDATION=1
 # Prevent OOM during Next.js build
 ENV NODE_OPTIONS=--max-old-space-size=2048
 
-RUN node ./node_modules/.bin/next build
-
-# Volume mount points
+# Create /data before build so better-sqlite3 can open the DB path at module eval time
 RUN mkdir -p /data public/uploads
+
+RUN node ./node_modules/.bin/next build
 
 ENV NODE_ENV=production
 ENV PORT=3000
