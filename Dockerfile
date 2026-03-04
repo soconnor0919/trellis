@@ -19,7 +19,7 @@ ENV SKIP_ENV_VALIDATION=1
 # Prevent OOM during Next.js build
 ENV NODE_OPTIONS=--max-old-space-size=2048
 
-RUN bun run build
+RUN node ./node_modules/.bin/next build
 
 # Volume mount points
 RUN mkdir -p /data public/uploads
