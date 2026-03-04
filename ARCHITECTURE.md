@@ -64,10 +64,10 @@ public/                   # INSTANCE — logo.svg, icon.svg, og-image.png, favic
 
 ```bash
 # 1. Fork this repo on GitHub (or clone + push to new remote)
-git clone https://github.com/soconnor/beencms my-client-cms
+git clone https://github.com/soconnor0919/beencms my-client-cms
 cd my-client-cms
 git remote rename origin upstream
-git remote add origin https://github.com/soconnor/my-client-cms
+git remote add origin https://github.com/soconnor0919/my-client-cms
 git push -u origin main
 
 # 2. One-time: enable the merge=ours driver

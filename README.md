@@ -32,11 +32,11 @@ bun run dev
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for the full fork workflow and file ownership map.
 
 ```bash
-git clone https://github.com/soconnor/beencms my-client
+git clone https://github.com/soconnor0919/beencms my-client
 cd my-client
 git remote rename origin upstream
-gh repo create soconnor/my-client --public --source=. --push
-git remote add origin https://github.com/soconnor/my-client
+gh repo create soconnor0919/my-client --public --source=. --push
+git remote add origin https://github.com/soconnor0919/my-client
 git config merge.ours.driver true
 # Edit src/config/cms.ts, replace public/ assets, build out src/app/(site)/
 ```
