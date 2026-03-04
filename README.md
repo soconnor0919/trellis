@@ -1,22 +1,10 @@
-# beenCMS
+# Trellis Workforce Development — Website
 
-A white-label Next.js content management engine. Fork once, power any number of client sites.
+Trellis creates meaningful employment for people in recovery, building life skills and leadership through real work.
 
-## What's included
+This site is powered by [beenCMS](https://github.com/soconnor0919/beencms).
 
-- Block-based page editor with draft/publish workflow
-- Admin sections: team members, programs/companies, blog, contact inbox
-- Runtime color & font theming — changes without a rebuild
-- Admin roles: admin / editor / viewer
-- SQLite + Drizzle ORM (zero ops, one-file DB)
-- BetterAuth email/password sessions
-- Dark mode
-
-## Tech stack
-
-Next.js · tRPC · Drizzle ORM · better-sqlite3 · BetterAuth · Tailwind v4 · shadcn/ui
-
-## Quick start
+## Local development
 
 ```bash
 cp .env.example .env
@@ -27,23 +15,12 @@ bun run db:seed
 bun run dev
 ```
 
-## Forking for a new client
-
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for the full fork workflow and file ownership map.
-
-```bash
-git clone https://github.com/soconnor0919/beencms my-client
-cd my-client
-git remote rename origin upstream
-gh repo create soconnor0919/my-client --public --source=. --push
-git remote add origin https://github.com/soconnor0919/my-client
-git config merge.ours.driver true
-# Edit src/config/cms.ts, replace public/ assets, build out src/app/(site)/
-```
-
 ## Pulling engine updates
 
 ```bash
 git fetch upstream
-git merge upstream/main   # instance files (cms.ts, (site)/**, public/**) are never overwritten
+git merge upstream/main
 ```
+
+Instance files (`src/config/cms.ts`, `src/app/(site)/**`, `public/**`, `README.md`) are protected
+by `.gitattributes merge=ours` and will never be overwritten by upstream merges.
