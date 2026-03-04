@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Fork merge strategy
+#
+# This repo is designed to be used as an upstream base. Client forks pull
+# engine improvements with:
+#
+#   git remote add upstream <base-repo-url>
+#   git fetch upstream
+#   git merge upstream/main
+#
+# Files marked `merge=ours` always keep the fork's version during that merge,
+# so client-specific code is never clobbered by upstream changes.
+#
+# ONE-TIME SETUP — run this once per clone (or add to onboarding script):
+#   git config merge.ours.driver true
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Instance files: always keep the fork's version ───────────────────────────
+
+# Primary instance config (feature flags, content pages, default theme)
+src/config/cms.ts              merge=ours
+
+# Public-facing site — every client has a unique design
+src/app/(site)/**              merge=ours
+
+# Client logo component
+src/components/Logo.tsx        merge=ours
+
+# Static assets (logo.svg, icon.svg, OG images, etc.)
+public/**                      merge=ours
+
+# Environment variables
+.env                           merge=ours
+.env.local                     merge=ours
+.env.example                   merge=ours
+
+# Project-level docs
+README.md                      merge=ours
+
+# ── Binary / generated files: never text-merge ───────────────────────────────
+*.sqlite                       binary
+*.sqlite-shm                   binary
+*.sqlite-wal                   binary
+bun.lock                       merge=ours
