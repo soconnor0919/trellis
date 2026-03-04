@@ -1,4 +1,6 @@
 import "~/styles/globals.css";
+
+export const dynamic = "force-dynamic";
 import { type Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import { Suspense } from "react";
