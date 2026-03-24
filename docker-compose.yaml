@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "3000:3000"
+      - "${WEB_PORT}:3000"
     environment:
       DATABASE_URL: ${DATABASE_URL:-/data/db.sqlite}
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
